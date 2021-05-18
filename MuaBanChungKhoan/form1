@@ -1,0 +1,66 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace MuaBanChungKhoan
+{
+    public partial class frm_Main : DevExpress.XtraEditors.XtraForm
+    {
+        public frm_Main()
+        {
+            InitializeComponent();
+        }
+
+
+        private void btn_LamLai_Click(object sender, EventArgs e)
+        {
+            cb_LoaiLenh.ResetText();
+            tb_MaCK.ResetText();
+            tb_KhoiLuong.ResetText();
+            tb_Gia.ResetText();
+            cb_MuaBan.ResetText();
+            cb_Lenh.ResetText();
+            lb_TrangThai.ResetText();
+        }
+
+        private void btn_MuaBan_Click(object sender, EventArgs e)
+        {
+            String Message = "";
+            String MaCK = tb_MaCK.Text;
+            if(MaCK == "")
+            {
+                Message = "Mã chứng khoán";
+            }
+            if(tb_KhoiLuong.Text == "")
+            {
+                if(Message != "")
+                {
+                    Message = Message + ", ";
+                }
+                Message = Message + "Khối lượng";
+            }
+            if (tb_Gia.Text == "")
+            {
+                if (Message != "")
+                {
+                    Message = Message + ", ";
+                }
+                Message = Message + "Giá";
+            }
+            if (Message != "")
+            {
+                Message = Message + " không được để trống !!!";
+            }
+            else
+            {
+                Message = "Giao dịch thành công!!";
+            }
+            MessageBox.Show(Message);
+        }
+    }
+}
